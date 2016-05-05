@@ -10,7 +10,6 @@
  */
 const byte TRIGPIN = 3;
 const byte ECHOPIN = 2;
-
 const unsigned int MAX_DISTANCE_CM = 300;
 float duration, distance;
 
@@ -20,9 +19,7 @@ void setup() {
   pinMode(ECHOPIN, INPUT);
 }
 
-
 void loop() {
-
   digitalWrite(TRIGPIN, LOW);  
   delayMicroseconds(2);
   digitalWrite(TRIGPIN, HIGH);
@@ -30,8 +27,7 @@ void loop() {
   digitalWrite(TRIGPIN, LOW);
   duration = pulseIn(ECHOPIN, HIGH,50000);
   distance = (duration/2) / 29.1;
- 
-  if(distance == 0 && digitalRead(ECHOPIN)==HIGH)
+   if(distance == 0 && digitalRead(ECHOPIN)==HIGH)
   {
     pinMode(ECHOPIN,OUTPUT);
     digitalWrite(ECHOPIN,LOW);
